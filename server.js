@@ -34,7 +34,7 @@ app.get('/app/flip/call/tails', (req, res) => {
     var tails = flipACoin("tails")
     res.status(200).json(tails)
 })
-
+ 
 
 app.use(function(req, res) {
     res.status(404).end("Endpoint does not exist")
