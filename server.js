@@ -1,7 +1,7 @@
 const express = require('express')
 const app = express()
 const args = require('minimist')(process.argv.slice(2))
-args['port']
+
 const port = args.port || process.env.PORT || 5000
 
 const server = app.listen(port, () => {
@@ -10,8 +10,6 @@ const server = app.listen(port, () => {
 
 app.get('/app/', (req, res) => {
     res.status(200).end('OK')
-    res.type('text/plain')
-
 })
 app.get('/app/flip/', (req, res) => {
     var flip = coinFlip()
@@ -36,7 +34,6 @@ app.get('/app/flip/call/tails', (req, res) => {
 
 app.use(function(req, res) {
     res.status(404).end("Endpoint does not exist")
-    res.type("text/plain")
 })
 
 function coinFlip() {
